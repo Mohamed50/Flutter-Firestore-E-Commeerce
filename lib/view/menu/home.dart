@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_example/view-model/auth-view-model.dart';
+import 'package:getx_example/view-model/home-view-model.dart';
 import 'package:getx_example/view/widgets/menu/product-item.dart';
 
-class HomePage extends GetWidget<AuthViewModel> {
+class HomePage extends GetWidget<HomeViewModel> {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.separated(
-        itemCount: 10,
-        itemBuilder: (context, index) => ProductItem(
-          color: index % 2 == 0 ? Color(0xFFC3E5E4) : Color(0xFFE6E6E6),
+      body: GetBuilder<HomeViewModel>(
+        init: HomeViewModel(),
+        builder: (controller) => ListView.builder(
+          itemCount: controller.products.length,
+          itemBuilder: (context, index) => ProductItem(
+            product: controller.products[index],
+          ),
         ),
-        separatorBuilder: (context, index) => Container(),
       ),
     );
   }
