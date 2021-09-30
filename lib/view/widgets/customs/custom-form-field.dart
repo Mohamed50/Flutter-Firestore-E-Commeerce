@@ -19,7 +19,8 @@ class CustomFormField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hint,
         labelText: label,
-        prefixIcon: icon,
+        icon: icon,
+
       ),
     );
   }
