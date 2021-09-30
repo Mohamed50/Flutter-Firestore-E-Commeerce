@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:getx_example/data/model/user.dart';
 
 class ProductService{
 
@@ -9,6 +8,11 @@ class ProductService{
   Future<List<QueryDocumentSnapshot>> fetchProducts() async {
     var result = await _productsCollection.get();
     return result.docs;
+  }
+
+  Future<DocumentSnapshot> fetchProductById(String id) async {
+    var result = await _productsCollection.doc(id).get();
+    return result;
   }
 
 }
