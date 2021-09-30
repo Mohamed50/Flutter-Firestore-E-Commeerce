@@ -9,9 +9,8 @@ class HomePage extends GetWidget<HomeViewModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GetBuilder<HomeViewModel>(
-        init: HomeViewModel(),
-        builder: (controller) => ListView.builder(
+      body: Obx(
+        () => ListView.builder(
           itemCount: controller.products.length,
           itemBuilder: (context, index) => ProductItem(
             product: controller.products[index],

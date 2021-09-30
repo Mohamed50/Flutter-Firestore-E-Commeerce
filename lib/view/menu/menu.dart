@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:getx_example/view-model/menu-view-model.dart';
+import 'package:getx_example/view/cart.dart';
 import 'package:getx_example/view/menu/home.dart';
 import 'package:getx_example/view/menu/profile.dart';
 import 'package:getx_example/view/menu/search.dart';
@@ -20,7 +21,9 @@ class MenuPage extends GetWidget<MenuViewModel> {
         title: CustomText("E - Commerce"),
         actions: [
           IconButton(onPressed: (){}, icon: Icon(FontAwesomeIcons.search)),
-          IconButton(onPressed: (){}, icon: Icon(FontAwesomeIcons.shoppingCart)),
+          IconButton(onPressed: (){
+            Get.to(CartPage());
+          }, icon: Icon(FontAwesomeIcons.shoppingCart)),
         ],
       ),
       drawer: Drawer(),

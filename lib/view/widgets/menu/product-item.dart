@@ -15,7 +15,7 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: !clickable ? null : ()=> Get.to(ProductDetailsPage(product: product)),
+      onTap: !clickable ? null : ()=> Get.to(() => ProductDetailsPage(product: product)),
       child: AspectRatio(
         aspectRatio: aspectRatio!,
         child: Container(
@@ -44,7 +44,7 @@ class ProductItem extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                       SizedBox(height: 8.0),
-                      CustomText(product.details!),
+                      CustomText("${product.price!} \$    ${product.details!}"),
                     ],
                   ),
                   IconButton(

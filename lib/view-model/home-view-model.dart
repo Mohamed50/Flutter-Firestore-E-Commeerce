@@ -14,7 +14,7 @@ class HomeViewModel extends GetxController{
   fetchProducts(){
     ProductService().fetchProducts().then((docs){
       docs.forEach((element) {
-        _products.add(ProductModel.fromMap(element.data() as Map));
+        _products.add(ProductModel.fromMap((element.data() as Map)..putIfAbsent("id", () => element.id)));
       });
       update();
     });
