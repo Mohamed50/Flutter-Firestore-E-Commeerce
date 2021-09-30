@@ -13,11 +13,15 @@ class MyApp extends StatelessWidget {
     Get.put(CartViewModel());
     return GetMaterialApp(
       initialBinding: Binding(),
+      debugShowCheckedModeBanner: false,
       home: AuthHandler(),
       theme: ThemeData(
-        primaryColor: primaryColor,
-        fontFamily: "Montserrat"
-      ),
+          primaryColor: primaryColor,
+          fontFamily: "Montserrat",
+          appBarTheme: AppBarTheme(
+              color: Colors.grey.shade50,
+              titleTextStyle: TextStyle(color: primaryColor),
+              iconTheme: IconThemeData(color: primaryColor))),
     );
   }
 }

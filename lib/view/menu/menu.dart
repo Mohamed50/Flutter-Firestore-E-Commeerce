@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:getx_example/config/const.dart';
 import 'package:getx_example/view-model/menu-view-model.dart';
 import 'package:getx_example/view/cart.dart';
 import 'package:getx_example/view/menu/home.dart';
@@ -18,11 +19,11 @@ class MenuPage extends GetWidget<MenuViewModel> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.grey.shade50,
-        title: CustomText("E - Commerce"),
+        title: CustomText("E - Commerce", color: primaryColor,),
         actions: [
           IconButton(onPressed: (){}, icon: Icon(FontAwesomeIcons.search)),
           IconButton(onPressed: (){
-            Get.to(CartPage());
+            Get.to(()=>CartPage());
           }, icon: Icon(FontAwesomeIcons.shoppingCart)),
         ],
       ),
