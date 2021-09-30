@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       home: AuthHandler(),
       theme: ThemeData(
         primaryColor: primaryColor,
+        fontFamily: "Montserrat"
       ),
     );
   }
