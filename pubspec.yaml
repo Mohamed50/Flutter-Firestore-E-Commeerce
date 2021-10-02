@@ -22,6 +22,8 @@ dependencies:
   salomon_bottom_bar: ^3.1.0
   sqflite: ^2.0.0+4
   path: ^1.8.0
+  flutter_svg: ^0.22.0
+
 
 dev_dependencies:
   flutter_test:

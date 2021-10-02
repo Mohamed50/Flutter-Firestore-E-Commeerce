@@ -1,9 +1,13 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_example/data/model/order.dart';
 import 'package:getx_example/data/service/order-service.dart';
 import 'package:getx_example/view-model/auth-view-model.dart';
 
 class OrdersViewModel extends GetxController{
+
+  ValueNotifier<bool> _loading = ValueNotifier(false);
+  ValueNotifier<bool> get loading => _loading;
 
   RxList<OrderModel> _orders = <OrderModel>[].obs;
   List<OrderModel> get orders => _orders.value;
@@ -13,6 +17,7 @@ class OrdersViewModel extends GetxController{
   }
 
   fetchOrders(){
+    _loading.value = true;
     String userId = Get.find<AuthViewModel>().user!.uid;
     OrderService().fetchUserOrders(userId).then((docs){
       docs.forEach((element) async {
@@ -28,6 +33,7 @@ class OrdersViewModel extends GetxController{
         // print(json.encode(map));
         // _products.add(ProductModel.fromMap((element.data() as Map)..putIfAbsent("id", () => element.id)));
       });
+      _loading.value = false;
       update();
     });
   }

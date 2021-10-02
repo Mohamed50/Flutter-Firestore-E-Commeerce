@@ -22,8 +22,8 @@ class CustomBottomNavigationBar extends GetWidget<MenuViewModel> {
             title: CustomText("Home"),
           ),
           SalomonBottomBarItem(
-            icon: Icon(FontAwesomeIcons.search),
-            title: CustomText("Search"),
+            icon: Icon(FontAwesomeIcons.box),
+            title: CustomText("Orders"),
           ),
           SalomonBottomBarItem(
             icon: Icon(FontAwesomeIcons.user),
