@@ -5,6 +5,7 @@ import 'package:getx_example/config/const.dart';
 import 'package:getx_example/view-model/menu-view-model.dart';
 import 'package:getx_example/view/cart.dart';
 import 'package:getx_example/view/menu/home.dart';
+import 'package:getx_example/view/menu/orders.dart';
 import 'package:getx_example/view/menu/profile.dart';
 import 'package:getx_example/view/menu/search.dart';
 import 'package:getx_example/view/widgets/customs/custom-bottom-navigation-bar.dart';
@@ -33,7 +34,7 @@ class MenuPage extends GetWidget<MenuViewModel> {
           onPageChanged: controller.onPageChanged,
           children: [
             HomePage(),
-            SearchPage(),
+            OrdersPage(),
             ProfilePage(),
           ],
         ),
