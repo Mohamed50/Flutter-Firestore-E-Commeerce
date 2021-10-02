@@ -1,18 +1,21 @@
 import 'package:get/get.dart';
 import 'package:getx_example/data/controller/db-helper.dart';
 import 'package:getx_example/data/model/cart-product.dart';
+import 'package:getx_example/data/model/order.dart';
+import 'package:getx_example/data/model/product.dart';
 
-class CartViewModel extends GetxController{
-
+class CartViewModel extends GetxController {
   DBHelper _dbHelper = DBHelper.dbHelper;
 
   List<CartProductModel> _cart = <CartProductModel>[];
+
   List<CartProductModel> get cart => _cart;
 
   RxDouble _totalPrice = 0.0.obs;
+
   double get totalPrice => _totalPrice.value;
 
-  CartViewModel(){
+  CartViewModel() {
     fetchAllProducts();
   }
 
@@ -31,18 +34,17 @@ class CartViewModel extends GetxController{
     await _dbHelper.deleteProduct(productModel.id!);
   }
 
-
-  Future increaseQuantity(int index) async{
+  Future increaseQuantity(int index) async {
     _cart[index].quantity++;
     _totalPrice.value += _cart[index].price;
     updateProduct(_cart[index]);
     update();
   }
 
-  Future decreaseQuantity(int index) async{
+  Future decreaseQuantity(int index) async {
     _cart[index].quantity--;
     _totalPrice.value -= _cart[index].price;
-    if(_cart[index].quantity == 0)
+    if (_cart[index].quantity == 0)
       removeProduct(index);
     else
       updateProduct(_cart[index]);
@@ -51,13 +53,15 @@ class CartViewModel extends GetxController{
 
   void calculatePrice() {
     _totalPrice.value = 0.0;
-    cart.forEach((element) => _totalPrice.value += element.price * element.quantity);
+    cart.forEach(
+        (element) => _totalPrice.value += element.price * element.quantity);
     update();
   }
 
   addToCart(CartProductModel cartProductModel) async {
-    bool found = _cart.any((element) => cartProductModel.productId == element.productId);
-    if(found)
+    bool found =
+        _cart.any((element) => cartProductModel.productId == element.productId);
+    if (found)
       Get.snackbar(cartProductModel.name!, "product already exist in cart");
     else {
       _cart.add(cartProductModel);
@@ -72,4 +76,20 @@ class CartViewModel extends GetxController{
     _cart.removeAt(index);
   }
 
+  void clear() {
+    _cart.clear();
+    _totalPrice.value = 0.0;
+    _dbHelper.deleteAllProducts();
+    update();
+  }
+
+  List<ProductElement> getOrderProducts() {
+    return cart.map((element) {
+      ProductElement productElement = ProductElement();
+      productElement.size = element.size;
+      productElement.quantity = element.quantity;
+      productElement.product = ProductModel.fromMap({"id": element.productId});
+      return productElement;
+    }).toList();
+  }
 }

@@ -47,5 +47,10 @@ class DBHelper {
     await db!.delete(CART_TABLE_NAME, where: '$CART_FIELD_ID = ?', whereArgs: [id]);
   }
 
+  Future<void> deleteAllProducts() async {
+    var db = await database;
+    await db!.delete(CART_TABLE_NAME);
+  }
+
 
 }

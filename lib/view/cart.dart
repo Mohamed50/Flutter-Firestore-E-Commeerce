@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_example/view-model/cart-view-model.dart';
+import 'package:getx_example/view/checkout.dart';
 import 'package:getx_example/view/widgets/cart-item.dart';
 import 'package:getx_example/view/widgets/customs/custom-button.dart';
 import 'widgets/customs/custom-text.dart';
@@ -56,7 +57,9 @@ class CartPage extends StatelessWidget {
                           CustomButton(
                             text: "Check out",
                             padding: EdgeInsets.all(16.0),
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.off(() => CheckoutPage());
+                            },
                           ),
                         ],
                       ),

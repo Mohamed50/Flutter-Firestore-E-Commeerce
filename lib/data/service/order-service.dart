@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:getx_example/data/model/order.dart';
 
 class OrderService{
 
@@ -16,8 +17,8 @@ class OrderService{
     return result;
   }
 
-  addOrder() async {
-      await _ordersCollection.add({});
+  addOrder(OrderModel orderModel) async {
+      await _ordersCollection.add(orderModel.toJson());
   }
 
 }

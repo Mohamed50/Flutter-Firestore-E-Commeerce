@@ -17,9 +17,9 @@ class ProductModel{
     details = json["details"];
     description = json["description"];
     imageUrl = json["imageUrl"];
-    price = double.parse(json["price"].toString());
-    color = HexColor.fromHex(json["color"]);
-    sizes = List<String>.from(json["sizes"].map((x) => x));
+    price = json["price"] != null ? double.parse(json["price"].toString()) : 0.0;
+    color = json["color"] != null ? HexColor.fromHex(json["color"]) : null;
+    sizes = json["color"] != null ? List<String>.from(json["sizes"].map((x) => x)) : [];
   }
 
   Map<String, dynamic> toMap(){

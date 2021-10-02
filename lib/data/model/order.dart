@@ -4,6 +4,7 @@
 
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:getx_example/data/model/product.dart';
 
 OrderModel orderModelFromJson(String str) => OrderModel.fromJson(json.decode(str));
@@ -18,13 +19,13 @@ class OrderModel {
     this.products,
   });
 
-  int? total;
+  double? total;
   Address? address;
   String? user;
   List<ProductElement>? products;
 
   factory OrderModel.fromJson(Map<String, dynamic> json) => OrderModel(
-    total: json["total"] == null ? null : json["total"],
+    total: json["total"] == null ? null : double.parse(json["total"].toString()),
     address: json["address"] == null ? null : Address.fromJson(json["address"]),
     user: json["user"] == null ? null : json["user"],
     products: json["products"] == null ? null : List<ProductElement>.from(json["products"].map((x) => ProductElement.fromJson(x))),
@@ -84,7 +85,7 @@ class ProductElement {
   );
 
   Map<String, dynamic> toJson() => {
-    "product": product == null ? null : product!.toMap(),
+    "product": product == null ? null : FirebaseFirestore.instance.collection("Products").doc(product!.id),
     "quantity": quantity == null ? null : quantity,
     "size": size == null ? null : size,
   };
