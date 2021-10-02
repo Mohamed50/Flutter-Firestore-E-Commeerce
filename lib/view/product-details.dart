@@ -98,6 +98,7 @@ class ProductDetailsPage extends StatelessWidget {
                       product.sizes[index],
                       fontSize: 18.0,
                       fontWeight: FontWeight.w700,
+                      color: selectedSize != null && product.sizes[index] == selectedSize ? Colors.white : Colors.grey[900],
                     ),
                   ),
                 ),
