@@ -10,7 +10,7 @@ clone project from repo and run using command.
 flutter run
 ```
 
-if you don't have flutter follow steps [here](https://pip.pypa.io/en/stable/)
+if you don't have flutter follow steps [here](https://flutter.dev/docs/get-started/install)
 
 
 ## Screenshots
