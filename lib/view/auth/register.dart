@@ -80,7 +80,7 @@ class RegisterPage extends GetWidget<AuthViewModel> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [0
+              children: [
                 Spacer(),
                 CustomFormField(
                   icon: Icon(Icons.person),

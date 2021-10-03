@@ -1,5 +1,5 @@
 # Flutter-firestore-e-commerce
-Is a flutter project for small e-commerce scenrio using firebase auth and firestore to mange the e-commerce functionality. the project use the MVVM design pettern with getX package for state management.
+Is a flutter project for small e-commerce scenario using firebase auth and firestore to mange the e-commerce functionality. the project use the MVVM design pettern with getX package for state management.
 
 
 ## Installation
@@ -10,7 +10,7 @@ clone project from repo and run using command.
 flutter run
 ```
 
-if you dont have flutter follow steps [here](https://pip.pypa.io/en/stable/)
+if you don't have flutter follow steps [here](https://pip.pypa.io/en/stable/)
 
 
 ## Screenshots
