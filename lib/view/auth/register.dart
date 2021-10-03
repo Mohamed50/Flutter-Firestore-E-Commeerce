@@ -16,8 +16,7 @@ class RegisterPage extends GetWidget<AuthViewModel> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomAuthPage(
-        headerPadding: EdgeInsets.fromLTRB(
-            24.0, MediaQuery.of(context).padding.top + 8.0, 24.0, 24.0),
+        headerPadding: EdgeInsets.fromLTRB(24.0, MediaQuery.of(context).padding.top + 8.0, 24.0, 24.0),
         header: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,15 +72,16 @@ class RegisterPage extends GetWidget<AuthViewModel> {
           ],
         ),
         bodyPadding:
-            const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
+            const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
         body: Container(
           height: MediaQuery.of(context).size.height * 3 / 5,
           child: Form(
             key: _formKey,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: [0
+                Spacer(),
                 CustomFormField(
                   icon: Icon(Icons.person),
                   label: "Name",
@@ -105,7 +105,7 @@ class RegisterPage extends GetWidget<AuthViewModel> {
                   onSaved: (value) => controller.password = value,
                   validator: (value) => value != null ? null : "enter password",
                 ),
-                SizedBox(height: 32.0),
+                Spacer(),
                 CustomButton(
                   text: "Sign Up",
                   padding: EdgeInsets.all(16.0),
@@ -115,6 +115,7 @@ class RegisterPage extends GetWidget<AuthViewModel> {
                       controller.emailSignUp();
                   },
                 ),
+                Spacer(),
               ],
             ),
           ),
