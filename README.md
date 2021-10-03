@@ -37,7 +37,6 @@ if you don't have flutter follow steps [here](https://flutter.dev/docs/get-start
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
