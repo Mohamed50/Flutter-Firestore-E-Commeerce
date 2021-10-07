@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_example/utils/validator.dart';
 import 'package:getx_example/view-model/auth-view-model.dart';
 import 'package:getx_example/view/widgets/customs/custom-button.dart';
 import 'package:getx_example/view/widgets/customs/custom-form-field.dart';
@@ -87,23 +88,21 @@ class RegisterPage extends GetWidget<AuthViewModel> {
                   label: "Name",
                   hint: "John Doe",
                   onSaved: (value) => controller.name = value,
-                  validator: (value) =>
-                      value != null ? null : "enter valid name",
+                  validator: InputsValidator.nameValidator,
                 ),
                 CustomFormField(
                   icon: Icon(Icons.mail),
                   label: "Email",
                   hint: "example@gmail.com",
                   onSaved: (value) => controller.email = value,
-                  validator: (value) =>
-                      value != null ? null : "enter valid email",
+                  validator: InputsValidator.emailValidator,
                 ),
                 CustomFormField(
                   icon: Icon(Icons.lock),
                   label: "Password",
                   hint: "********",
                   onSaved: (value) => controller.password = value,
-                  validator: (value) => value != null ? null : "enter password",
+                  validator: InputsValidator.passwordValidator,
                 ),
                 Spacer(),
                 CustomButton(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:getx_example/config/const.dart';
+import 'package:getx_example/utils/validator.dart';
 import 'package:getx_example/view-model/auth-view-model.dart';
 import 'package:getx_example/view/auth/custom-auth-page.dart';
 import 'package:getx_example/view/auth/register.dart';
@@ -72,15 +73,14 @@ class LoginPage extends GetWidget<AuthViewModel> {
                 label: "Email",
                 hint: "example@gmail.com",
                 onSaved: (value) => controller.email = value,
-                validator: (value) =>
-                    value != null ? null : "enter valid email",
+                validator: InputsValidator.emailValidator,
               ),
               CustomFormField(
                 icon: Icon(Icons.lock),
                 label: "Password",
                 hint: "********",
                 onSaved: (value) => controller.password = value,
-                validator: (value) => value != null ? null : "enter password",
+                validator: InputsValidator.passwordValidator,
               ),
               SizedBox(height: 32.0),
               CustomButton(
