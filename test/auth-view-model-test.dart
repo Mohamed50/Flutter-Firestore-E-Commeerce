@@ -151,7 +151,7 @@ main() async {
     }
 
     _mockSignInWithEmailField(){
-      when(_firebaseAuthMock.signInWithEmailAndPassword(email: unValidEmail, password: unValidPassword)).thenAnswer((realInvocation) async => throw Exception());
+      when(_firebaseAuthMock.signInWithEmailAndPassword(email: unValidEmail, password: unValidPassword)).thenAnswer((realInvocation) async => throw FirebaseAuthException(code: ''));
     }
 
 
