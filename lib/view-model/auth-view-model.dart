@@ -105,7 +105,7 @@ class AuthViewModel extends GetxController {
 
   Future<OAuthCredential> getGoogleCredentials() async {
     final GoogleSignInAccount? _googleUser = await _googleSignIn.signIn();
-    if(_googleUser!= null) {
+    if(_googleUser != null) {
       GoogleSignInAuthentication googleSignInAuthentication = await _googleUser.authentication;
       return GoogleAuthProvider.credential(
         accessToken: googleSignInAuthentication.accessToken,

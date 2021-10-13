@@ -28,8 +28,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  firebase_auth_mocks: ^0.8.1
-  google_sign_in_mocks: ^0.2.1
   mockito: ^5.0.16
   rxdart: ^0.27.2
   build_runner: ^2.1.4
