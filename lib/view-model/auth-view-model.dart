@@ -101,7 +101,7 @@ class AuthViewModel extends GetxController {
     return result;
   }
 
-  /// _____________________________ private functions _____________________________
+  /// _____________________________ credentials functions _____________________________
 
   Future<OAuthCredential> getGoogleCredentials() async {
     final GoogleSignInAccount? _googleUser = await _googleSignIn.signIn();
@@ -124,6 +124,10 @@ class AuthViewModel extends GetxController {
     else
       throw Exception('Facebook login failed');
   }
+
+
+  /// _____________________________ private functions _____________________________
+
 
   Future _saveUser(UserCredential userCredential) async {
     await UserService().addUser(

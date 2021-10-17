@@ -5,7 +5,7 @@ import 'package:getx_example/view-model/auth-view-model.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'mocks/auth-view-model-test.mocks.dart';
+import '../mocks/auth-view-model-test.mocks.dart';
 
 String validEmail = "abc@gmail.com";
 String validPassword = 'abc@123';
