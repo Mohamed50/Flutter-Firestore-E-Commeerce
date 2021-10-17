@@ -2,6 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:getx_example/utils/validator.dart';
 import 'package:get/get.dart';
 
+import '../util/const.dart';
+
 main() {
 
 
@@ -36,7 +38,7 @@ main() {
         'Given email input when input is not valid email then return ${emailNotValidMessageKey.tr}',
         () {
           // Assign
-          String? value = 'abcx';
+          String? value = unValidEmail;
           // ACT
           String? result = InputsValidator.emailValidator(value);
           // Assert
@@ -48,7 +50,7 @@ main() {
         'Given email input when input is valid email then return null',
         () {
           // Assign
-          String? value = 'abcx@gmail.com';
+          String? value = validEmail;
           // ACT
           String? result = InputsValidator.emailValidator(value);
           // Assert
@@ -89,7 +91,7 @@ main() {
         'Given password input when input is not valid password then return ${passwordNotValidMessageKey.tr}',
         () {
           // Assign
-          String? value = '1234';
+          String? value = unValidPassword;
           // ACT
           String? result = InputsValidator.passwordValidator(value);
           // Assert
@@ -101,7 +103,7 @@ main() {
         'Given password input when input is valid password then return null',
         () {
           // Assign
-          String? value = 'M12@test';
+          String? value = validPassword;
           // ACT
           String? result = InputsValidator.passwordValidator(value);
           // Assert
