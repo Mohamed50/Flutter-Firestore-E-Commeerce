@@ -3,8 +3,21 @@ import 'package:getx_example/data/model/user.dart';
 
 class UserService{
 
-  CollectionReference _usersCollection = FirebaseFirestore.instance.collection("Users");
+  late FirebaseFirestore _firestore;
+  late CollectionReference _usersCollection;
 
+  UserService(){
+    _firestore = FirebaseFirestore.instance;
+    init();
+  }
+
+  UserService.instance(this._firestore){
+    init();
+  }
+
+  init(){
+    _usersCollection = _firestore.collection("Users");
+  }
 
   addUser(UserModel user) async {
     await _usersCollection.doc(user.id).set(user.toMap());

@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:getx_example/data/service/user-service.dart';
 import 'package:getx_example/view-model/auth-view-model.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mockito/annotations.dart';
@@ -15,6 +17,7 @@ String unValidPassword = 'test@123';
 @GenerateMocks([FacebookLogin])
 @GenerateMocks([GoogleSignIn, GoogleSignInAccount, GoogleSignInAuthentication])
 @GenerateMocks([FirebaseAuth, UserCredential, User])
+@GenerateMocks([FirebaseFirestore, CollectionReference])
 
 
 main() async {
@@ -24,12 +27,16 @@ main() async {
   late MockGoogleSignIn _googleSignIn;
   late MockFacebookLogin _facebookLogin;
   late AuthViewModel authViewModel;
+  late MockFirebaseFirestore _firestore;
+  late UserService _userService;
 
   setUp(() {
     _firebaseAuthMock = MockFirebaseAuth();
     _googleSignIn = MockGoogleSignIn();
     _facebookLogin = MockFacebookLogin();
-    authViewModel = AuthViewModel.instance(_firebaseAuthMock, _googleSignIn, _facebookLogin);
+    _firestore = MockFirebaseFirestore();
+    _userService = UserService.instance(_firestore);
+    authViewModel = AuthViewModel.instance(_firebaseAuthMock, _googleSignIn, _facebookLogin, _userService);
   });
 
 

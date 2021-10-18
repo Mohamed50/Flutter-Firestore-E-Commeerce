@@ -16,6 +16,7 @@ class MenuPage extends GetWidget<MenuViewModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: Key('menu-page'),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.grey.shade50,

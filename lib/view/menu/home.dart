@@ -9,6 +9,7 @@ class HomePage extends GetWidget<HomeViewModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: Key('home-page'),
       body: Obx(
         () => ListView.builder(
           itemCount: controller.products.length,

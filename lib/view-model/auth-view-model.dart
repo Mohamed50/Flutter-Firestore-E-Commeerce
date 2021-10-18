@@ -13,6 +13,7 @@ class AuthViewModel extends GetxController {
   late FirebaseAuth _firebaseAuth;
   late GoogleSignIn _googleSignIn;
   late FacebookLogin _facebookLogin;
+  late UserService _userService;
 
   String? email, password, name;
 
@@ -23,9 +24,10 @@ class AuthViewModel extends GetxController {
     _firebaseAuth = FirebaseAuth.instance;
     _googleSignIn = GoogleSignIn(scopes: ["email"]);
     _facebookLogin = FacebookLogin();
+    _userService =  UserService();
   }
 
-  AuthViewModel.instance(this._firebaseAuth, this._googleSignIn, this._facebookLogin);
+  AuthViewModel.instance(this._firebaseAuth, this._googleSignIn, this._facebookLogin, this._userService);
 
   /// _____________________________ sign in state functions _____________________________
 
@@ -130,7 +132,7 @@ class AuthViewModel extends GetxController {
 
 
   Future _saveUser(UserCredential userCredential) async {
-    await UserService().addUser(
+    await _userService.addUser(
       UserModel.fromMap({
         "id": userCredential.user!.uid,
         "name": name == null ? userCredential.user!.displayName : name,

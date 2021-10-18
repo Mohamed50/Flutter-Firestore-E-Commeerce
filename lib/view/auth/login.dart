@@ -69,6 +69,7 @@ class LoginPage extends GetWidget<AuthViewModel> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomFormField(
+                key: Key('email-field'),
                 icon: Icon(Icons.mail),
                 label: "Email",
                 hint: "example@gmail.com",
@@ -76,6 +77,7 @@ class LoginPage extends GetWidget<AuthViewModel> {
                 validator: InputsValidator.emailValidator,
               ),
               CustomFormField(
+                key: Key('password-field'),
                 icon: Icon(Icons.lock),
                 label: "Password",
                 hint: "********",
@@ -100,6 +102,7 @@ class LoginPage extends GetWidget<AuthViewModel> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomIconButton(
+                    key: Key('facebook-login'),
                     color: Color(0xFF4267B2),
                     iconData: FontAwesomeIcons.facebookF,
                     padding: EdgeInsets.all(12.0),
@@ -107,6 +110,7 @@ class LoginPage extends GetWidget<AuthViewModel> {
                   ),
                   SizedBox(width: 32.0),
                   CustomIconButton(
+                    key: Key('google-login'),
                     color: Color(0xFFdb3236),
                     iconData: FontAwesomeIcons.google,
                     padding: EdgeInsets.all(12.0),
